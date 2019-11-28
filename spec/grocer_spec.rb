@@ -20,6 +20,9 @@ describe "Grocer" do
       {:item => "AVOCADO", :num => 2, :cost => 5.00},
       {:item => "BEER", :num => 2, :cost => 20.00},
       {:item => "CHEESE", :num => 3, :cost => 15.00}
+      {:item => "TEMPEH",  :num => 4, :costs => 3.00}
+      {:item => "PEANUTBUTTER",:num =>7, :costs => 3.00}
+      {:item => "SOY MILK", :num =>9, :costs => 4.50}
     ]
   end
 
@@ -29,6 +32,8 @@ describe "Grocer" do
         { :item => "DOG FOOD" },
         { :item => "WINE" },
         { :item => "STRYCHNINE" }
+        { :item => "Grapes" },
+        { :item => "Cheese"}
       ]
     end
 
@@ -48,7 +53,8 @@ describe "Grocer" do
 
   describe "#consolidate_cart" do
     it "adds a count of one to each item when there are no duplicates" do
-      cart = [find_item_by_name_in_collection('TEMPEH', items), find_item_by_name_in_collection('PEANUTBUTTER', items), find_item_by_name_in_collection('ALMONDS', items)]
+      cart = [find_item_by_name_in_collection('TEMPEH', items), find_item_by_name_in_collection('PEANUTBUTTER', items), find_item_by_name_in_collection('ALMONDS', items)
+      find_item_by_name_in_collection('SOY MILK')]
       consolidated_cart = consolidate_cart(cart)
       i = 0
       while i < consolidated_cart.length do
@@ -176,6 +182,7 @@ describe "Grocer" do
         expect(avocado_wc[:price]).to eq(2.50)
         expect(avocado_wc[:count]).to eq(2)
         expect(avocado_wc[:clearance]).to eq(true)
+        
       end
 
       it "doesn't break if there is no coupon" do
@@ -310,6 +317,7 @@ describe "Grocer" do
       end
 
       it "applies a 20% discount to items on clearance but not to non-clearance items" do
+        
         cart = [find_item_by_name_in_collection("BEETS", items), find_item_by_name_in_collection("PEANUTBUTTER", items)]
         total_cost = checkout(cart, [])
         expect(total_cost).to eq(4.90)
