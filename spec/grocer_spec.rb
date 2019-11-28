@@ -182,6 +182,7 @@ describe "Grocer" do
         expect(avocado_wc[:price]).to eq(2.50)
         expect(avocado_wc[:count]).to eq(2)
         expect(avocado_wc[:clearance]).to eq(true)
+        
       end
 
       it "doesn't break if there is no coupon" do
@@ -316,6 +317,7 @@ describe "Grocer" do
       end
 
       it "applies a 20% discount to items on clearance but not to non-clearance items" do
+        
         cart = [find_item_by_name_in_collection("BEETS", items), find_item_by_name_in_collection("PEANUTBUTTER", items)]
         total_cost = checkout(cart, [])
         expect(total_cost).to eq(4.90)
