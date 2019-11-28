@@ -20,7 +20,9 @@ describe "Grocer" do
       {:item => "AVOCADO", :num => 2, :cost => 5.00},
       {:item => "BEER", :num => 2, :cost => 20.00},
       {:item => "CHEESE", :num => 3, :cost => 15.00}
-      {:item => "TEMPEH", : num => 
+      {:item => "TEMPEH",  :num => 4, :costs => 3.00}
+      {:item => "PEANUTBUTTER",:num =>7, :costs => 3.00}
+      {:item => "SOY MILK", :num =>9, :costs => 4.50}
     ]
   end
 
