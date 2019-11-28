@@ -32,6 +32,8 @@ describe "Grocer" do
         { :item => "DOG FOOD" },
         { :item => "WINE" },
         { :item => "STRYCHNINE" }
+        { :item => "Grapes" },
+        { :item => "Cheese"}
       ]
     end
 
